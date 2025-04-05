@@ -1,0 +1,209 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Enlighten Adaptive Learning Presentation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset and base styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background: #000; /* Consistent background color */
+      color: #0ff;
+      overflow: hidden;
+      height: 100vh;
+      position: relative;
+      transition: background 0.8s ease-in-out; /* Smooth transition for background */
+    }
+
+    /* Slide container */
+    .slides {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+    }
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding: 2em;
+      display: none;
+      opacity: 0;
+      transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+      transform: scale(0.95);
+    }
+    .slide.active {
+      display: block;
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Cyberpunk neon glow animations */
+    h1, h3 {
+      color: #0ff;
+      text-shadow: 0 0 5px #0ff, 0 0 10px #0ff;
+      animation: neon 1.5s ease-in-out infinite alternate;
+    }
+    @keyframes neon {
+      from {
+        text-shadow: 
+          0 0 5px #0ff, 
+          0 0 10px #0ff,
+          0 0 15px #0ff;
+      }
+      to {
+        text-shadow: 
+          0 0 20px #0ff, 
+          0 0 30px #0ff,
+          0 0 40px #0ff;
+      }
+    }
+    
+    ul, ol {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      margin-left: 1.5em;
+    }
+    code {
+      background: rgba(0, 0, 0, 0.8);
+      padding: 2px 4px;
+      border-radius: 3px;
+      color: #0ff;
+    }
+    pre {
+      background: rgba(0, 0, 0, 0.75);
+      padding: 15px;
+      border-radius: 5px;
+      overflow-x: auto;
+      font-size: 1rem;
+      color: #0ff;
+      border: 1px solid #0ff;
+    }
+
+    /* Navigation Buttons */
+    .nav {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      z-index: 10;
+    }
+    .nav button {
+      margin: 0 10px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 25px;
+      background: rgba(0, 255, 255, 0.2);
+      color: #0ff;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+      border: 1px solid #0ff;
+    }
+    .nav button:hover {
+      background: rgba(0, 255, 255, 0.4);
+      transform: scale(1.05);
+    }
+
+    @media(max-width: 600px) {
+      .slide {
+        padding: 1em;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      h3 {
+        font-size: 1.2rem;
+      }
+      .nav button {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="slides">
+    <!-- Slide 1: Title -->
+    <div class="slide active" id="slide1">
+      <h1>AI Enlighten Adaptive Learning</h1>
+      <h3>Adaptive Learning Platform with AI Modules</h3>
+      <ul>
+        <li>Personalized Learning Experience</li>
+        <li>Dynamic Assessments &amp; Interactive Content</li>
+        <li>AI-driven Modules for Tailored Recommendations</li>
+      </ul>
+    </div>
+    
+    <!-- Other slides... -->
+    
+    <!-- Slide 11: Thank You -->
+    <div class="slide" id="slide11">
+      <h1>Thank You</h1>
+      <h3>Questions &amp; Discussion</h3>
+    </div>
+  </div>
+
+  <!-- Navigation Buttons -->
+  <div class="nav">
+    <button id="prevBtn">Previous</button>
+    <button id="nextBtn">Next</button>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const body = document.body;
+
+    const backgrounds = [
+      'linear-gradient(135deg, #000, #033)',
+      'linear-gradient(135deg, #001, #044)',
+      'linear-gradient(135deg, #002, #055)',
+      'linear-gradient(135deg, #003, #066)',
+      'linear-gradient(135deg, #004, #077)',
+      'linear-gradient(135deg, #005, #088)',
+      'linear-gradient(135deg, #006, #099)',
+      'linear-gradient(135deg, #007, #0aa)',
+      'linear-gradient(135deg, #008, #0bb)',
+      'linear-gradient(135deg, #009, #0cc)',
+      'linear-gradient(135deg, #00a, #0dd)',
+    ];
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+      body.style.background = backgrounds[index]; // Change background
+    }
+
+    function goToSlide(n) {
+      currentSlide = (n + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    document.getElementById('nextBtn').addEventListener('click', () => {
+      goToSlide(currentSlide + 1);
+    });
+
+    document.getElementById('prevBtn').addEventListener('click', () => {
+      goToSlide(currentSlide - 1);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') {
+        goToSlide(currentSlide + 1);
+      } else if (e.key === 'ArrowLeft') {
+        goToSlide(currentSlide - 1);
+      }
+    });
+  </script>
+</body>
+</html>

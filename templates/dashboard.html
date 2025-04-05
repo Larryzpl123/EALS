@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<section class="dashboard">
+    <div class="user-info">
+        <h2>Welcome, {{ user.username }}!</h2>
+        <div class="learning-stats">
+            <div class="stat-card">
+                <h3>Learning Style</h3>
+                <p>{{ user.learning_style }}</p>
+            </div>
+            <div class="stat-card">
+                <h3>Knowledge Level</h3>
+                <p>{{ user.knowledge_level * 100 }}%</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="recommended-content">
+        <h3>Recommended Learning Path</h3>
+        <div class="content-grid">
+            {% for item in content %}
+            <div class="content-card">
+                <h4>{{ item.title }}</h4>
+                <p>{{ item.description }}</p>
+                <a href="/learn/{{ item.id }}" class="cta-button">Start Learning</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

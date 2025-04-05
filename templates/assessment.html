@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Learning Assessment{% endblock %}
+
+{% block content %}
+<div class="assessment">
+    <h2>Learning Style Assessment</h2>
+    <form method="POST" action="/assessment">
+        {% for question in range(1, 11) %}
+        <div class="question-card">
+            <p>Question {{ question }}: How do you prefer to learn about new concepts?</p>
+            <div class="options">
+                <label>
+                    <input type="radio" name="q{{ question }}" value="1" required>
+                    Visual (Diagrams/Images)
+                </label>
+                <label>
+                    <input type="radio" name="q{{ question }}" value="2">
+                    Textual (Reading)
+                </label>
+                <label>
+                    <input type="radio" name="q{{ question }}" value="3">
+                    Interactive (Hands-on)
+                </label>
+            </div>
+        </div>
+        {% endfor %}
+        <button type="submit" class="cta-button">Complete Assessment</button>
+    </form>
+</div>
+{% endblock %}

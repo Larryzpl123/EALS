@@ -1,0 +1,27 @@
+cd /Users/larry/Desktop/AI\ Enlighten\ Adaptive\ Learning
+source venv/bin/activate
+python app.py
+
+'''
+project-root/
+├── app.py
+├── ai_modules/
+│   ├── adaptive_engine.py
+│   ├── content_generator.py
+│   └── assessment_analyzer.py
+├── templates/
+│   ├── base.html
+│   ├── index.html
+│   ├── register.html
+│   ├── assessment.html
+│   ├── dashboard.html
+│   ├── learning_interface.html
+│   └── quiz.html
+├── models/
+│   └── learning_style_model.pkl (need training)
+└── static/
+    ├── css/
+    │   └── styles.css
+    └── js/
+        └── script.tjs
+'''
