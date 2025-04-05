@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Enlighten - AI Adaptive Learning Presentation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background: url('bkg.jpg') center center / 100% 100% fixed;
+      background-size: cover;
+      color: #0ff;
+      overflow: hidden;
+      position: relative;
+      height: 100%;
+    }
+
+    .matrix-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      opacity: 0.1;
+      background: url('bkg.jpg') center center / 100% 100% fixed;
+      animation: matrix 100s linear infinite;
+    }
+
+    /* Slide Container */
+    .slides {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Individual Slides */
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding: 2em;
+      display: none;
+      opacity: 0;
+      transition: 1s all cubic-bezier(0.4, 0, 0.2, 1);
+      background: url('bkg.jpg') center center / 100% 100% fixed;
+      transform: translateX(100%) rotateY(90deg);
+    }
+    .slide.active {
+      display: block;
+      opacity: 1;
+      transform: translateX(0) rotateY(0);
+    }
+
+    /* Cyberpunk Styling Elements */
+    .cyber-border {
+      position: absolute;
+      border: 2px solid #0ff;
+      box-shadow: 0 0 15px #0ff;
+      pointer-events: none;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5em;
+      text-shadow: 0 0 10px #0ff;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1em;
+      color: #0ff;
+    }
+
+    h5 {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 20%;
+    }
+    h5 span { 
+      background-color: cyan; 
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      padding: 10px;
+      margin: 10px 0;
+      border-left: 3px solid #0ff;
+      transform: translateX(-20px);
+      opacity: 0.5;
+      animation: slideIn 0.5s forwards;
+      background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 255, 255, 0.5) 100%);
+    }
+
+    pre {
+      background: #000;
+      border: 1px solid #0ff;
+      box-shadow: 0 0 20px #0ff;
+      padding: 20px;
+      border-radius: 5px;
+      overflow-x: auto;
+      position: relative;
+    }
+
+    code {
+      color: #0ff;
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    /* Navigation Buttons */
+    .nav {
+      position: fixed;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      z-index: 100;
+    }
+
+    .nav button {
+      margin: 0 10px;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border: 2px solid #0ff;
+      background: rgba(0, 0, 0, 0.5);
+      color: #0ff;
+      cursor: pointer;
+      transition: 0.3s all;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .nav button:hover {
+      background: #0ff;
+      color: #000;
+      box-shadow: 0 0 20px #0ff;
+    }
+
+    /* Animations */
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #0ff; }
+      to { text-shadow: 0 0 20px #0ff, 0 0 30px #0ff; }
+    }
+
+    @keyframes slideIn {
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    @keyframes matrix {
+      from { background-position: 0 0; }
+      to { background-position: 0 100%; }
+    }
+
+    /* Particle Effects */
+    .particles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      h3 { font-size: 1.2rem; }
+      .nav button { padding: 10px 20px; font-size: 1rem; }
+
+    }
+  </style>
+</head>
+<body>
+  <div class="matrix-bg"></div>
+  <div class="slides">
+    <!-- Combined Content Slides -->
+    <div class="slide active" id="slide1">
+      <div class="cyber-border"></div>
+      <h1>EALS</h1>
+      <h3>ENLIGHTEN - ADAPTIVE LEARNING SYSTEM</h3>
+      <h3>Neural-Driven Adaptive Learning Engine</h3>
+      <pre><code>By O(n⁴²); Time Complexity of: Ultimate Question of Life, The Universe, and Everything; P = NP ?</code></pre>
+      <ul>
+        <li>AI-Powered Personalization Matrix</li>
+        <li>Dynamic Neural Assessment Network</li>
+        <li>Real-Time Content Generation Engine</li>
+        <li>Personalized Learning Experience</li>
+        <li>Dynamic Assessments &amp; Interactive Content</li>
+      </ul>
+      <pre><code>python app.py --start --neural-mode</code></pre>
+    </div>
+
+    <div class="slide" id="slide2">
+      <div class="cyber-border"></div>
+      <h1>SYSTEM ARCHITECTURE</h1>
+      <pre>
+├── <span style="color:#0ff">app.py</span>
+│
+├── ai_modules/
+│   │
+│   ├── adaptive_engine.py
+│   ├── content_generator.py
+│   └── assessment_analyzer.py
+│
+├── templates/
+│   │
+│   ├── base.html
+│   ├── index.html
+│   ├── register.html
+│   ├── assessment.html
+│   ├── dashboard.html
+│   ├── learning_interface.html
+│   └── quiz.html
+│
+├── models/
+│   │
+│   └── learning_style_model.pkl (need training)
+│
+└── static/
+    │
+    ├── css/
+    │   │
+    │   └── styles.css
+    │
+    └── tjs/
+        │
+        └── script.js</pre></div>
+
+    <div class="slide" id="slide3">
+      <div class="cyber-border"></div>
+      <h1>NEURAL CORE: app.py</h1>
+      <pre><code>from flask import Flask, render_template, request, redirect, session
+from flask_sqlalchemy import SQLAlchemy
+import numpy as np
+
+app = Flask(__name__)
+app.secret_key = 'your_secret_key'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
+db = SQLAlchemy(app)
+
+# Database Model
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80), unique=True)
+    learning_style = db.Column(db.String(50))
+    knowledge_level = db.Column(db.Float)
+    progress = db.Column(db.JSON)
+
+# AI Modules
+adaptive_engine = AdaptiveEngine()
+content_gen = ContentGenerator()
+assess_analyzer = AssessmentAnalyzer()
+
+@app.route('/')</code></pre>
+    </div>
+
+    <div class="slide" id="slide4">
+      <div class="cyber-border"></div>
+      <h1>TECHNICAL MATRIX</h1>
+      <ul>
+        <li>Python Neural Interpreter</li>
+        <li>Flask Routing System</li>
+        <li>TensorFlow Cognitive Module</li>
+        <li>Cybernetic UI Framework</li>
+        <li>Realtime Analytics Engine</li>
+        <li>Cloud Server Group</li>
+        <li>Pytorch & Anaconda & Pycharm</li>
+        <li>System Support by GPT/DS/Grok/Gemini</li>
+      </ul>
+    </div>
+
+    <!-- Additional Combined Slides -->
+    <div class="slide" id="slide5">
+      <div class="cyber-border"></div>
+      <h1>ADAPTIVE LEARNING FLOW</h1>
+      <ul>
+        <li>Continuous Skill Assessment</li>
+        <li>Dynamic Content Adjustment</li>
+        <li>Realtime Feedback Analysis</li>
+        <li>Predictive Learning Paths</li>
+      </ul>
+      <pre><code>neural_network --train --epochs 50 --batch-size 32</code></pre>
+      <ul>
+        <li>*Training not finished today due to insufficience data, lack of computing power, and time constraints.</li>
+        <li>Models used currently inclde transformer, classifier, decision tree, random forest, normal linear & logistic regressions.</li>
+        <li>Library tools used are Sklearn - Cluster, Kmeans, Joblib, Numpy, sentence_transformers, pipeline, GPTs, and Flask.</li>
+      </ul>
+    </div>
+
+    <!-- Continue adding combined slides... -->
+
+      <div class="slide" id="slide11">
+      <div class="cyber-border"></div>
+      <h1>SYSTEM ONLINE</h1>
+      <h3>When Neural Network is Finished and Activated</h3>
+      <pre><code>=== SYSTEM STATUS ===
+      Adaptive Matrix: FUNCTIONAL
+      Assessment Engine: ACTIVE
+      Content Generator: READY
+      Learning Modules: ONLINE
+      Security Protocols: ENGAGED
+Functions: Learn ---- Generate ---- Assess (l/g/a) ; Log in / Signup (i/s)
+>>> i
+username / password
+>>> LarryZ / 27Zhongp
+Functions: Learn ---- Generate ---- Assess (l/g/a) Signout (s)
+Log in / Signup (i/s)
+>>> l
+what do you want to learn? (type q to quit)
+>>> Classify ML
+What is full name of RL? (type q to quit)
+>>> Reinforcement learning
+Correct, what is binary classification? (type q to quit)
+>>> Predicts one of two possible classes
+Correct, which algorithm is NOT typically used for classification? (Multiple Choice) (type q to quit)
+A) Random Forest / B) k-Means / C) Diffusion / D) Support Vector Machine (SVM) / E) Logistic Regression
+>>> A / E
+Wrong, its B / C, what is definition of linear regression? (type q to quit)
+>>> q</code></pre>
+          </div>
+
+      <div class="slide" id="slide12">
+      <div class="cyber-border"></div>
+      <h1>CODE EXCERPTS</h1>
+      <h3>=== Adaptive Modules ===</h3>
+      <pre><code>from sklearn.cluster import KMeans
+from sentence_transformers import SentenceTransformer
+import numpy as np
+
+class AdaptiveEngine:
+
+    def __init__(self):
+        self.model = SentenceTransformer('all-MiniLM-L6-v2')
+        self.kmeans = KMeans(n_clusters=4)
+        
+    def recommend_content(self, user):
+        # Analyze user progress and recommend content
+        embeddings = self.load_content_embeddings()
+        user_embedding = self.model.encode(user.progress)
+
+        self.kmeans.fit(embeddings)
+        cluster = self.kmeans.predict([user_embedding])[0]
+        return self.select_content(cluster, user.learning_style)
+
+    def load_content_embeddings(self):
+        # Load pre-generated content embeddings
+        return np.random.rand(100, 384)  # Mock data</code></pre>
+
+      </div>
+
+  </div>
+
+<div class="slide" id="slide13">
+      <div class="cyber-border"></div>
+      <h1>CODE EXCERPTS</h1>
+      <h3>=== Assessment Analyzer ===</h3>
+      <pre><code>from sklearn.ensemble import RandomForestClassifier
+import joblib
+
+class AssessmentAnalyzer:
+        
+    def analyze(self, responses):
+        if len(responses) < 5:
+            raise ValueError("Insufficient responses for learning style prediction. At least 5 required.")
+        
+        # Extract learning style features and predict
+        learning_features = responses[:5]
+        # Ensure features are in the correct shape (2D array for prediction)
+        learning_style = self.style_model.predict([learning_features])[0]
+        
+        # Calculate knowledge gap (handle empty responses[5:] to avoid division by zero)
+        knowledge_responses = responses[5:]
+        if not knowledge_responses:
+            knowledge_gap = 0.0
+        else:
+            # Assuming each knowledge question contributes up to 1 point
+            max_possible_score = len(knowledge_responses)
+            actual_score = sum(knowledge_responses)
+            knowledge_gap = actual_score / max_possible_score  # Represents percentage mastery</code></pre>
+
+      </div>
+
+  </div>
+
+      <div class="slide" id="slide14">
+      <div class="cyber-border"></div>
+      <h1>CODE EXCERPTS</h1>
+      <h3>=== Content Generator ===</h3>
+      <pre><code>from transformers import pipeline, GPT2LMHeadModel, GPT2Tokenizer
+import random
+
+class ContentGenerator:
+
+    def __init__(self):
+        self.qa_pipeline = pipeline("question-answering")
+        self.text_gen_tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
+        self.text_gen_model = GPT2LMHeadModel.from_pretrained('gpt2')
+        
+    def generate_content(self, topic_id, style):
+        # Generate style-adapted content
+        base_content = self.get_base_content(topic_id)
+        return self._adapt_content(base_content, style)
+        
+    def generate_quiz(self, topic_id, difficulty):
+        # Generate difficulty-adjusted questions
+        return [{
+            'question': f"Sample question about {topic_id}?",
+            'options': ['A', 'B', 'C', 'D'],
+            'correct': 'B'
+        } for _ in range(5)]</code></pre>
+
+      </div>
+
+  </div>
+
+
+      <div class="slide" id="slide15">
+      <div class="cyber-border"></div>
+      <h1>Thank you for watching</h1>
+      <h3>=== Access my project through name, link, or qr code below ===</h3>
+      <ul>
+        <li>EALS</li>
+        <li>Enlighten - AI Adaptive Learning Presentation</li>
+        <li>https://github.com/Larryzpl123/EALS</li>
+      </ul>
+      <h5><img src="Cyan140*140.png" alt="Project-Qr-Code" width="300" height="300"><h5>
+      </div>
+
+  </div>
+
+  <div class="nav">
+    <button id="prevBtn">« PREVIOUS NODE</button>
+    <button id="nextBtn">NEXT CORE »</button>
+  </div>
+
+  <script>
+    // Enhanced Navigation System
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const backgrounds = [
+      'radial-gradient(circle at center, #001 0%, #000 100%)',
+      'radial-gradient(circle at 20% 20%, #002, #000)',
+      'radial-gradient(circle at 80% 20%, #003, #000)',
+      'radial-gradient(circle at 20% 80%, #004, #000)',
+      'radial-gradient(circle at 80% 80%, #005, #000)',
+    ];
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+      document.body.style.background = backgrounds[index % backgrounds.length];
+    }
+
+    function goToSlide(n) {
+      currentSlide = (n + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    // Event Listeners
+    document.getElementById('nextBtn').addEventListener('click', () => goToSlide(currentSlide + 1));
+    document.getElementById('prevBtn').addEventListener('click', () => goToSlide(currentSlide - 1));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') goToSlide(currentSlide + 1);
+      if (e.key === 'ArrowLeft') goToSlide(currentSlide - 1);
+    });
+
+    // Particle System
+    function createParticles() {
+      const container = document.createElement('div');
+      container.className = 'particles';
+      document.body.appendChild(container);
+
+      for (let i = 0; i < 50; i++) {
+        const particle = document.createElement('div');
+        particle.style.cssText = `
+          position: absolute;
+          width: 2px;
+          height: 2px;
+          background: #0ff;
+          border-radius: 50%;
+          animation: float ${Math.random() * 3 + 2}s infinite;
+          left: ${Math.random() * 100}%;
+          top: ${Math.random() * 100}%;
+        `;
+        container.appendChild(particle);
+      }
+    }
+    createParticles();
+
+    // List Item Animations
+    document.querySelectorAll('.slide').forEach(slide => {
+      slide.addEventListener('transitionend', () => {
+        if (slide.classList.contains('active')) {
+          const lis = slide.querySelectorAll('li');
+          lis.forEach((li, index) => {
+            setTimeout(() => {
+              li.style.animation = `slideIn 0.5s ${index * 0.2}s forwards`;
+            }, 50);
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
